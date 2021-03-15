@@ -37,6 +37,7 @@ public class Console {
 	
 	public void exit() {
 		Main.isConsole = false;
+		Main.main(new String[0]);
 	}
 	
 	public ArrayList<String> getCommands() {

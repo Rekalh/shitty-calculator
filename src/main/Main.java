@@ -17,6 +17,10 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Scanner scanner = new Scanner(System.in);
+		Console console = new Console();
+		
+		ModuleLoader loader = new ModuleLoader();
+		loader.loadModules(); // Loads all modules. Do not delete this line
 		
 		System.out.println("Enter '0' to start the program");
 		int start = scanner.nextInt();
@@ -40,9 +44,6 @@ public class Main {
 		if (mode.equals(Mode.CALCULATOR)) {
 			int terms;
 			int operationId;
-			
-			ModuleLoader loader = new ModuleLoader();
-			loader.loadModules(); // Loads all modules. Do not delete this line
 			
 			ArrayList<Float> nums = new ArrayList<>();
 			Operations operation;
@@ -81,6 +82,8 @@ public class Main {
 			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 				e.printStackTrace();
 			}
+		} else if (mode == Mode.CONSOLE) {
+			console.start();
 		}
 		scanner.close();
 	}
